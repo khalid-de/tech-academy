@@ -1,0 +1,1084 @@
+/* ==========================================================================
+   1. BASE STYLES & VARIABLES
+   ========================================================================== */
+:root {
+    --primary-navy: #0B2240;
+    --secondary-blue: #1A365D;
+    --accent-blue: #2B6CB0;
+    --light-bg: #F7FAFC;
+    --text-main: #2D3748;
+    --text-muted: #718096;
+    --white: #FFFFFF;
+    --border-color: #E2E8F0;
+    --font-stack: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-stack);
+    color: var(--text-main);
+    background-color: var(--white);
+    line-height: 1.6;
+    padding-bottom: 60px; /* Space for sticky ribbon */
+}
+
+.layout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Button & Action Utilities */
+.action-btn {
+    font-family: var(--font-stack);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-navy {
+    background-color: var(--primary-navy);
+    color: var(--white);
+}
+
+.btn-light-glow {
+    background-color: var(--white);
+    color: var(--primary-navy);
+}
+
+.btn-navy-submit {
+    background-color: var(--primary-navy);
+    color: var(--white);
+    width: 100%;
+    border-radius: 6px;
+    padding: 14px;
+}
+
+.btn-white-pill {
+    background-color: var(--white);
+    color: var(--primary-navy);
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* Center Section Typography Headers */
+.section-label-center {
+    text-align: center;
+    color: var(--accent-blue);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-heading-center {
+    text-align: center;
+    color: var(--primary-navy);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+
+.section-subtext-center {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 750px;
+    margin: 0 auto 48px auto;
+}
+
+/* ==========================================================================
+   2. SITE HEADER & NAVIGATION
+   ========================================================================== */
+.site-header {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-flex-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-square {
+    background-color: var(--primary-navy);
+    color: var(--white);
+    font-weight: 800;
+    font-size: 1.4rem;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+.brand-titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-titles strong {
+    color: var(--primary-navy);
+    font-size: 1.1rem;
+    line-height: 1.2;
+}
+
+.brand-titles span {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-links-wrapper {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links-wrapper a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.nav-links-wrapper a:hover,
+.nav-links-wrapper a.active {
+    color: var(--accent-blue);
+}
+
+/* ==========================================================================
+   3. HERO BLOCK SECTION
+   ========================================================================== */
+.hero-block {
+    background: linear-gradient(135deg, #0A192F 0%, #172A45 100%);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.hero-grid-system {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+}
+
+.hero-content-left .tagline-label {
+    color: #64FFDA;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+}
+
+.hero-content-left h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+.hero-narrative {
+    color: #8892B0;
+    font-size: 1.1rem;
+    margin-bottom: 36px;
+}
+
+.hero-cta-group {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.video-play-btn {
+    background: none;
+    border: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.circle-play-icon {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+}
+
+/* Hero Video Controls Overlays */
+.hero-video-right {
+    position: relative;
+}
+
+.video-container-frame {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    background-color: #000;
+    aspect-ratio: 16 / 9;
+}
+
+.video-poster {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.video-center-trigger {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #000;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.custom-video-controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+}
+
+.timeline-bar {
+    flex-grow: 1;
+    height: 4px;
+    background-color: rgba(255,255,255,0.3);
+    border-radius: 2px;
+    position: relative;
+}
+
+.timeline-progress {
+    width: 30%;
+    height: 100%;
+    background-color: var(--accent-blue);
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   4. PATHWAY TRACK CARDS
+   ========================================================================== */
+.pathway-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.pathway-grid-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+}
+
+.pathway-card-item {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.pathway-card-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+}
+
+.pathway-item-badge {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background-color: var(--light-bg);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.pathway-card-item h3 {
+    color: var(--primary-navy);
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+}
+
+.pathway-item-metadata {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+}
+
+.pathway-item-metadata span strong {
+    color: var(--primary-navy);
+}
+
+.vertical-pipe {
+    color: var(--border-color);
+}
+
+.pathway-card-item p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 28px;
+    flex-grow: 1;
+}
+
+.circle-arrow-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background-color: var(--primary-navy);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    align-self: flex-start;
+}
+
+/* ==========================================================================
+   5. TECHNICAL TOOLS SHOWCASE
+   ========================================================================== */
+.tech-tools-section {
+    padding: 80px 0;
+    background-color: var(--light-bg);
+}
+
+.tech-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.tech-tool-tag {
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    padding: 16px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.01);
+}
+
+.check-indicator {
+    color: var(--accent-blue);
+    font-weight: 900;
+}
+
+/* ==========================================================================
+   6. PRICING COMPARISON MATRIX
+   ========================================================================== */
+.pricing-matrix-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+.pricing-table-scroll-shield {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.pricing-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    background-color: var(--white);
+    font-size: 0.95rem;
+}
+
+.pricing-comparison-table th, 
+.pricing-comparison-table td {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.pricing-comparison-table th {
+    background-color: var(--primary-navy);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.pricing-comparison-table th:first-child {
+    text-align: left;
+}
+
+.pricing-comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.pricing-comparison-table tbody tr:nth-child(even) {
+    background-color: #FAFAFA;
+}
+
+.row-feature-title {
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.pricing-comparison-table td .check-indicator {
+    font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   COHORT REGISTRATION SECTION (DARK BLUE BACKGROUND)
+   ========================================================================== */
+.cohort-signup-section {
+    background-color: #051329; /* Deep navy blue background */
+    color: #ffffff;
+    padding: 64px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signup-split-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Left Content Block */
+.signup-text-left {
+    flex: 1;
+    max-width: 500px;
+}
+
+.signup-text-left .tagline-label {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.signup-text-left h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #ffffff;
+}
+
+.signup-text-left p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 32px;
+}
+
+/* Meta Data Badges Layout (Date & Security) */
+.signup-meta-info {
+    display: flex;
+    gap: 32px;
+}
+
+.meta-item-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.meta-icon {
+    font-size: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.meta-item-box div {
+    display: flex;
+    flex-direction: column;
+}
+
+.meta-item-box div strong {
+    font-size: 0.9rem;
+    color: #ffffff;
+}
+
+.meta-item-box div span {
+    color: #94a3b8;
+    font-size: 0.85rem;
+}
+
+/* Right Content Form Card */
+.signup-form-right {
+    flex: 1;
+    max-width: 550px;
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 12px;
+}
+
+.form-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.input-with-icon-wrapper {
+    position: relative;
+}
+
+.input-field-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+.cohort-form-element input,
+.cohort-form-element select {
+    width: 100%;
+    padding: 12px 14px 12px 38px;
+    border: 1px solid #e2e8f0;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    color: #334155;
+    background-color: #ffffff;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Payment Section Styling inside White Box */
+.payment-preference-block {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.payment-group-title {
+    display: block;
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.radio-options-row {
+    display: flex;
+    gap: 24px;
+}
+
+.radio-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    color: #334155;
+    font-size: 0.85rem;
+}
+
+.btn-navy-submit {
+    background-color: #0a2540;
+    color: #ffffff;
+    width: 100%;
+    border: none;
+    border-radius: 6px;
+    padding: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+/* ==========================================================================
+   STICKY / FLOATING ACTION RIBBON
+   ========================================================================== */
+.sticky-cta-ribbon {
+    background-color: #051329;
+    padding: 24px 0;
+}
+
+.ribbon-flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0b2240;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 12px 32px;
+    border-radius: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ribbon-text-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+.btn-white-pill {
+    background-color: #ffffff;
+    color: #051329;
+    border: none;
+    border-radius: 25px;
+    padding: 8px 24px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   SITE FOOTER (LIGHT BACKGROUND)
+   ========================================================================== */
+.site-footer {
+    background-color: #ffffff;
+    padding: 40px 0;
+    border-top: 1px solid #f1f5f9;
+}
+
+.footer-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 24px auto;
+    padding: 0 24px;
+}
+
+.footer-brand-block .brand-titles strong {
+    color: #051329;
+    font-size: 1.1rem;
+    display: block;
+}
+
+.footer-brand-block .brand-titles span {
+    color: #64748b;
+    font-size: 0.75rem;
+}
+
+.footer-links-block {
+    display: flex;
+    gap: 24px;
+}
+
+.footer-links-block a {
+    color: #475569;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.footer-social-networks {
+    display: flex;
+    gap: 12px;
+}
+
+.social-icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background-color: #0f172a;
+    color: #ffffff;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 0.85rem;
+}
+
+.footer-bottom-copyright {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.8rem;
+    border-top: 1px solid #f1f5f9;
+    padding-top: 24px;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Source Concept - Live Test Preview</title>
+    <style>
+        /* ==========================================================================
+           1. BASE STYLES & CONTROLLERS
+           ========================================================================== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            line-height: 1.5;
+        }
+
+        .layout-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ==========================================================================
+           2. COHORT SIGNUP SECTION (DARK BLUE BACKGROUND)
+           ========================================================================== */
+        .cohort-signup-section {
+            background-color: #051329;
+            color: #ffffff;
+            padding: 60px 0;
+        }
+
+        .signup-split-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .signup-text-left {
+            flex: 1;
+        }
+
+        .signup-text-left .tagline-label {
+            color: #94a3b8;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .signup-text-left h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .signup-text-left .signup-description {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 24px;
+        }
+
+        .signup-meta-info {
+            display: flex;
+            gap: 24px;
+        }
+
+        .meta-item-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .meta-icon {
+            font-size: 1.2rem;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+        }
+
+        .meta-item-box div strong {
+            font-size: 0.85rem;
+            display: block;
+            color: #ffffff;
+        }
+
+        .meta-item-box div span {
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        /* Form Card Panel */
+        .signup-form-right {
+            flex: 1;
+            max-width: 520px;
+            background-color: #ffffff;
+            padding: 28px;
+            border-radius: 10px;
+        }
+
+        .form-input-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .input-with-icon-wrapper {
+            position: relative;
+        }
+
+        .input-field-icon {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+
+        .cohort-form-element input,
+        .cohort-form-element select {
+            width: 100%;
+            padding: 10px 12px 10px 34px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #334155;
+            outline: none;
+            background-color: #ffffff;
+        }
+
+        .payment-preference-block {
+            margin-bottom: 16px;
+        }
+
+        .payment-group-title {
+            display: block;
+            color: #64748b;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .radio-options-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .radio-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+            color: #334155;
+            font-size: 0.85rem;
+        }
+
+        .btn-navy-submit {
+            background-color: #0b2240;
+            color: #ffffff;
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            padding: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           3. FLOATING ACTION PILL RIBBON
+           ========================================================================== */
+        .ribbon-outer-wrapper {
+            background-color: #ffffff;
+            padding: 40px 0 20px 0;
+        }
+
+        .ribbon-flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #0b2240;
+            padding: 12px 28px;
+            border-radius: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ribbon-text-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
+            font-size: 0.85rem;
+        }
+
+        .vertical-pipe {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-white-pill {
+            background-color: #ffffff;
+            color: #0b2240;
+            border: none;
+            border-radius: 20px;
+            padding: 8px 18px;
+            font-weight: 600;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        /* ==========================================================================
+           4. SITE FOOTER SECTION
+           ========================================================================== */
+        .site-footer {
+            background-color: #ffffff;
+            padding: 40px 0 20px 0;
+            border-top: 1px solid #f1f5f9;
+            margin-top: 20px;
+        }
+
+        .footer-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 20px;
+            margin-bottom: 16px;
+        }
+
+        .brand-titles strong {
+            color: #0b2240;
+            font-size: 1.1rem;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .brand-titles span {
+            color: #64748b;
+            font-size: 0.75rem;
+        }
+
+        .footer-links-block {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links-block a {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .footer-links-block a:hover {
+            color: #0b2240;
+        }
+
+        .footer-social-networks {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background-color: #0b2240;
+            color: #ffffff;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .footer-bottom-copyright {
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.8rem;
+        }
+
+        /* ==========================================================================
+           5. RESPONSIVE CONTROLS
+           ========================================================================== */
+        @media (max-width: 768px) {
+            .signup-split-layout {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .form-input-grid {
+                grid-template-columns: 1fr;
+            }
+            .ribbon-flex-container {
+                flex-direction: column;
+                gap: 14px;
+                border-radius: 16px;
+                text-align: center;
+            }
+            .footer-top-row {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            .footer-links-block {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
